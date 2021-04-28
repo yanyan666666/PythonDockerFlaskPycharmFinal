@@ -1,45 +1,42 @@
-{% extends "layout.html" %}
+% extends "layout.html" %}
 {% block content %}
-<form action="/cities/new" method="POST">
+<form action="/zillow/new" method="POST">
     <div class="row">
         <div class="col">
-            <label for="fldName">City Name</label>
-            <input id="fldName" type="text" class="form-control" placeholder="City Name" name="fldName">
+            <label for="Living_Space_sq_ft">Square Feet</label>
+            <input id="Living_Space_sq_ft" type="text" class="form-control" placeholder="Square Feet"
+                   name="Living_Space_sq_ft">
         </div>
         <div class="col">
-            <label for="fldAbbreviation">City Abbreviation</label>
-            <input id="fldAbbreviation" t ype="text" class="form-control" placeholder="City Abbreviation"
-                   name="fldAbbreviation">
+            <label for="Beds">Beds</label>
+            <input id="Beds" type="text" class="form-control" placeholder="Beds"
+                   name="Beds">
         </div>
         <div class="col">
-            <label for="fldCountry">City Country</label>
-            <input id="fldCountry" type="text" class="form-control" placeholder="City Country" name="fldCountry">
+            <label for="Baths">Baths</label>
+            <input id="Baths" type="text" class="form-control" placeholder="Baths" name="Baths">
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            <label for="fldLat">City Latitude</label>
-            <input id="fldLat" type="text" class="form-control" placeholder="City Latitude" name="fldLat">
+            <label for="Zip">Zip</label>
+            <input id="Zip" type="text" class="form-control" placeholder="Zip" name="Zip">
         </div>
         <div class="col">
-            <label for="fldlong">City Longitude</label>
-            <input id="fldlong" type="text" class="form-control" placeholder="City Longitude" name="fldLong">
+            <label for="Year">Year</label>
+            <input id="Year" type="text" class="form-control" placeholder="Year" name="Year">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <label for="fldCapitalStatus">Capital Status</label>
+            <label for="List_Price">List Price</label>
 
-            <input id="fldCapitalStatus" type="text" class="form-control" placeholder="Capital Status "
-                   name="fldCapitalStatus">
-        </div>
-        <div class="col">
-            <label for="fldPopulation">City Population</label>
-            <input id="fldPopulation" type="text" class="form-control" placeholder="Population" name="fldPopulation">
+            <input id="List_Price" type="text" class="form-control" placeholder="List Price"
+                   name="List_Price">
         </div>
     </div>
-    <button type="submit" class="btn btn-success">Create</button>
+    <button type="submit" class="btn btn-success">Add Entry</button>
 
 </form>
 
