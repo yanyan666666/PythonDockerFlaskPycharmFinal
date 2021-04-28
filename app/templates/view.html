@@ -2,20 +2,23 @@
 {% block content %}
 
 <div class="card" class="m-5 p-2">
-    <h5 class="card-title">{{ city.fldName }} - {{ city.fldAbbreviation }}</h5>
+    <h5 class="card-title">Database Entry: {{ zillow.id }} </h5>
 
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Latitude: {{ city.fldLat }}</li>
-        <li class="list-group-item">Longitude: {{ city.fldLong }}</li>
-        <li class="list-group-item">Capital Status: {{ city.fldCapitalStatus }}</li>
-        <li class="list-group-item">Country: {{ city.fldCountry }}</li>
-        <li class="list-group-item">Population: {{ city.fldPopulation }}</li>
+        <li class="list-group-item">Square Feet: {{ zillow.Living_Space_sq_ft }}</li>
+        <li class="list-group-item">Beds: {{ zillow.Beds }}</li>
+        <li class="list-group-item">Baths: {{ zillow.Baths }}</li>
+        <li class="list-group-item">Zip: {{ zillow.Zip }}</li>
+        <li class="list-group-item">Year: {{ zillow.Year }}</li>
+        <li class="list-group-item">Listed Price: {{ zillow.List_Price }}</li>
     </ul>
     <div class="card-body">
-        <a href="/edit/{{city.id}}" class="card-link btn btn-primary">edit</a>
+        <a href="/edit/{{zillow.id}}" class="card-link btn btn-primary">edit</a>
+        </div>
     </div>
-</div>
-<form action="/delete/{{city.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+        <form action="/delete/{{zillow.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+
+
 
 
 {% endblock %}
