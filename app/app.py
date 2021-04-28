@@ -91,7 +91,7 @@ def api_browse() -> str:
 @app.route('/api/v1/zillow/<int:zillow_id>', methods=['GET'])
 def api_retrieve(zillow_id) -> str:
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tblCitiesImport WHERE id=%s', zillow_id)
+    cursor.execute('SELECT * FROM zillowtable WHERE id=%s', zillow_id)
     result = cursor.fetchall()
     json_result = json.dumps(result);
     resp = Response(json_result, status=200, mimetype='application/json')
