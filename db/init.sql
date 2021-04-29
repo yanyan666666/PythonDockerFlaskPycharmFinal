@@ -2,7 +2,7 @@
 use zillowData;
 
 
-CREATE TABLE IF NOT EXISTS zillowtable (
+CREATE TABLE IF NOT EXISTS zillow (
     `id` int AUTO_INCREMENT,
     `Living_Space_sq_ft` NUMERIC(7, 1),
     `Beds` INT,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS zillowtable (
     `List_Price` NUMERIC(12, 2),
     PRIMARY KEY (`id`)
 );
-INSERT INTO zillowtable VALUES
+INSERT INTO zillow VALUES
     ( 1, 2222, 3, 3.5, 32312, 1981, 250000),
     ( 2, 1628, 3, 2,   32308, 2009, 185000),
     ( 3, 3824, 5, 4,   32312, 1954, 399000),
