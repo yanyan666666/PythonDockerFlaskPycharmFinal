@@ -20,7 +20,7 @@ mysql.init_app(app)
 def index():
     user = {'username': 'ZillowData Project'}
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM zillowtable')
+    cursor.execute('SELECT * FROM zillow')
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, zillow=result)
 
@@ -28,7 +28,7 @@ def index():
 @app.route('/view/<int:zillow_id>', methods=['GET'])
 def record_view(zillow_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM zillowtable WHERE id=%s', zillow_id)
+    cursor.execute('SELECT * FROM zillow WHERE id=%s', zillow_id)
     result = cursor.fetchall()
     return render_template('view.html', title='View Form', zillow=result[0])
 
@@ -36,7 +36,7 @@ def record_view(zillow_id):
 @app.route('/edit/<int:zillow_id>', methods=['GET'])
 def form_edit_get(zillow_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM zillowtable WHERE id=%s', zillow_id)
+    cursor.execute('SELECT * FROM zillow WHERE id=%s', zillow_id)
     result = cursor.fetchall()
     return render_template('edit.html', title='Edit Form', zillow=result[0])
 
@@ -72,7 +72,7 @@ def form_insert_post():
 @app.route('/delete/<int:zillow_id>', methods=['POST'])
 def form_delete_post(zillow_id):
     cursor = mysql.get_db().cursor()
-    sql_delete_query = """DELETE FROM zillowtable WHERE id = %s """
+    sql_delete_query = """DELETE FROM zillow WHERE id = %s """
     cursor.execute(sql_delete_query, zillow_id)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -81,7 +81,7 @@ def form_delete_post(zillow_id):
 @app.route('/api/v1/zillow', methods=['GET'])
 def api_browse() -> str:
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM zillowtable')
+    cursor.execute('SELECT * FROM zillow')
     result = cursor.fetchall()
     json_result = json.dumps(result);
     resp = Response(json_result, status=200, mimetype='application/json')
@@ -91,7 +91,7 @@ def api_browse() -> str:
 @app.route('/api/v1/zillow/<int:zillow_id>', methods=['GET'])
 def api_retrieve(zillow_id) -> str:
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM zillowtable WHERE id=%s', zillow_id)
+    cursor.execute('SELECT * FROM zillow WHERE id=%s', zillow_id)
     result = cursor.fetchall()
     json_result = json.dumps(result);
     resp = Response(json_result, status=200, mimetype='application/json')
@@ -130,7 +130,7 @@ def api_add() -> str:
 @app.route('/api/v1/zillow/<int:zillow_id>', methods=['DELETE'])
 def api_delete(zillow_id) -> str:
     cursor = mysql.get_db().cursor()
-    sql_delete_query = """DELETE FROM zillowtable WHERE id = %s """
+    sql_delete_query = """DELETE FROM zillow WHERE id = %s """
     cursor.execute(sql_delete_query, zillow_id)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
